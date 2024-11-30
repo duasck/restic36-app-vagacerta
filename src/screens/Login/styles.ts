@@ -12,7 +12,7 @@ export const Container = styled.View`
   width: 100%;
   padding: 16px;
   gap: 16px;
-  background-color: ${({theme})=>theme.COLORS.WHITE};
+  background-color: ${({ theme }) => theme.COLORS.WHITE};
 `;
 
 export const Form = styled.View`
@@ -29,10 +29,10 @@ export const TextContainer = styled.View`
 `;
 
 export const TextBlack = styled.Text`
-  font-size: ${({theme})=>theme.FONT_SIZE.SM}px;
+  font-size: ${({ theme }) => theme.FONT_SIZE.SM}px;
   font-weight: 700;
   text-align: center;
-  color: ${({theme})=>theme.COLORS.BLACK};
+  color: ${({ theme }) => theme.COLORS.BLACK};
 `;
 
 export const TextLinkContainer = styled.TouchableOpacity`
@@ -40,40 +40,41 @@ export const TextLinkContainer = styled.TouchableOpacity`
 `;
 
 export const TextLink = styled.Text`
-  font-size: ${({theme})=>theme.FONT_SIZE.SM}px;
+  font-size: ${({ theme }) => theme.FONT_SIZE.SM}px;
   font-weight: 700;
   text-align: center;
-  color: ${({theme})=>theme.COLORS.GRAY_03};
+  color: ${({ theme }) => theme.COLORS.GRAY_03};
 `;
 
-export const modalOverlay = styled.Text`
-    flex: 1;
-    justifyContent: "center";
-    alignItems: "center";
-    backgroundColor: "rgba(0, 0, 0, 0.5)"; // Fundo semitransparente
+// Styled Components para o Modal
+export const ModalOverlay = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
 `;
 
-export const modalButtonText = styled.Text`
- color: "white";
- fontSize: 16;
+export const ModalContainer = styled.View`
+  background-color: ${({ theme }) => theme.COLORS.WHITE};
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  align-items: center;
 `;
 
-export const modalContainer = styled.Text`
-backgroundColor: "white";
-    padding: 20;
-    borderRadius: 10;
-    width: "80%";
-    alignItems: "center";
+export const ModalText = styled.Text`
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: ${({ theme }) => theme.COLORS.RED}; /* Usando cor definida no tema */
 `;
 
-export const modalText = styled.Text`
-fontSize: 18;
-    marginBottom: 20;
-    color: "red"; // Cor da mensagem de erro
+export const ModalButton = styled.TouchableOpacity`
+  background-color: ${({ theme }) => theme.COLORS.BLUE}; /* Cor definida no tema */
+  padding: 10px;
+  border-radius: 5px;
 `;
 
-export const modalButton = styled.Text`
-backgroundColor: "blue";
-    padding: 10;
-    borderRadius: 5;
+export const ModalButtonText = styled.Text`
+  color: ${({ theme }) => theme.COLORS.WHITE};
+  font-size: 16px;
 `;
