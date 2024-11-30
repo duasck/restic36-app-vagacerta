@@ -45,3 +45,35 @@ export const TextLink = styled.Text`
   text-align: center;
   color: ${({theme})=>theme.COLORS.GRAY_03};
 `;
+
+export const modalOverlay = styled.Text`
+    flex: 1;
+    justifyContent: "center";
+    alignItems: "center";
+    backgroundColor: "rgba(0, 0, 0, 0.5)"; // Fundo semitransparente
+`;
+
+export const modalButtonText = styled.Text`
+ color: "white";
+ fontSize: 16;
+`;
+
+export const modalContainer = styled.Text`
+backgroundColor: "white";
+    padding: 20;
+    borderRadius: 10;
+    width: "80%";
+    alignItems: "center";
+`;
+
+export const modalText = styled.Text`
+fontSize: 18;
+    marginBottom: 20;
+    color: "red"; // Cor da mensagem de erro
+`;
+
+export const modalButton = styled.Text`
+backgroundColor: "blue";
+    padding: 10;
+    borderRadius: 5;
+`;

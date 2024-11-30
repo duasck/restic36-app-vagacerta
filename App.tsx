@@ -69,7 +69,7 @@ export default function App() {
           <Stack.Screen name="Auth" component={Auth} />
         </Stack.Navigator>
       </NavigationContainer>
-    </ThemeProvider>
+    </ThemeProvider> 
   );
 }
 

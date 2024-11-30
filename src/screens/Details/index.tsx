@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Feather } from '@expo/vector-icons';
 import { 
     Wrapper,
@@ -14,11 +14,34 @@ import {
 import Logo from '../../components/Logo';
 import theme from '../../theme';
 import { Button } from '../../components/Button';
+import { VagaProps } from '../../utils/Types';
+import api from '../../services/api';
 
 
 export default function Details({route, navigation }) {
 
-    const {id} = route.params;
+    const [id , setId] =useState(route.params.id);
+    const [vaga, setVaga] = useState<VagaProps>(null);
+
+    const fetchVaga = async () => {
+        try {
+            const response = await api.get(`/vagas/${id}`);
+            const data = response.data;
+            setVaga({
+                id: data.id,
+                title: data.titulo,
+                date: data.dataCadastro,
+                description: data.descricao,
+                phone: data.telefone,
+                company: data.empresa,
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    useEffect(() => {
+        fetchVaga();
+    }, []);
 
     return (
         <Wrapper>
@@ -34,10 +57,10 @@ export default function Details({route, navigation }) {
                 <Logo />
             </Header>
 
-            <Container>
+            {vaga ? (<Container>
                 <ContentContainer>
-                    <Title>{JSON.stringify(id)}</Title>
-                    <Description>Com este id é possível ir no endpoint da API buscar o restante da informação.</Description>
+                    <Title>{vaga.title}</Title>
+                    <Description>{vaga.description}</Description>
                 </ContentContainer>
 
                 <Button 
@@ -45,7 +68,10 @@ export default function Details({route, navigation }) {
                     noSpacing={true} 
                     variant='primary'
                     />
-            </Container>
+            </Container>) : (
+                 <Title>Vaga não encontrada.</Title>
+            )}
+            
         </Wrapper>
     );
 }
